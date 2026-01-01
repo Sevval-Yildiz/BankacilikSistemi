@@ -2,7 +2,7 @@ import java.util.ArrayList;
 // SavingsAccount ve CheckingAccount sınıflarımız bu Account sınıfından miras alacak.
 public abstract class Account implements Transferable {
     private String accountNumber; // Hesap numarası.
-    private String ownername; // Hesap sahibi adı.
+    private String ownerName; // Hesap sahibi adı.
     protected double balance; // Bakiye.
     private ArrayList<Transaction> history; // İşlem geçmişi listesi.
 
@@ -12,9 +12,9 @@ public abstract class Account implements Transferable {
  * @param ownername Hesap sahibi adı.
  * @param initialBalance Açılış bakiyesi.
  */
-public Account (String accountNumber, String ownername, double initialBalance){
+public Account (String accountNumber, String ownerName, double initialBalance){
     this.accountNumber = accountNumber;
-    this.ownername = ownername;
+    this.ownerName = ownerName;
     this.balance = initialBalance;
     this.history = new ArrayList<>();
     addTransaction("Açılış", initialBalance, "Hesap açılışı");
@@ -43,6 +43,29 @@ public void deposit(double amount){
  */
 public abstract boolean withdraw(double amount);
 
+/**
+ * Transfer metodu transferable interface inden gelir.Başka bir hesaba para transferi yapar.
+ * @param toAccount Paranın gideceği hesap.
+ * @param amount Gönderilecek miktar.
+ * @return İşlem başarılıysa true başarısızsa false döner.
+ */
+@Override
+public boolean transfer (Account toAccount, double amount) {
+    if (toAccount == this) {
+        System.out.println("Kendinize para transferi yapamazsınız !");
+        return false;
+    }
+    if (this.withdraw(amount)){
+        toAccount.deposit(amount);
+        this.addTransaction("Giden Transfer", amount, toAccount.getOwnerName() + "kişisine transfer");
+        toAccount.addTransaction("Gelen Transfer", amount, this.ownerName + "kişisinden transfer");
+        System.out.println("Başarılı : " + toAccount.getOwnerName() + "hesabına" + amount + "TL gönderildi.");
+        return true;
+    }else{
+        System.out.println("Para transferi için bakiye yetersiz, işlem başarısız !");
+        return false;
+    }
+}
 //Getter metotları :
 public String getAccountNumber(){
     return accountNumber;
@@ -52,5 +75,8 @@ public String getBalance(){
 }
 public ArrayList<Transaction> getHistory(){
     return history;
+}
+public String getOwnerName(){
+    return ownerName;
 }
 }
