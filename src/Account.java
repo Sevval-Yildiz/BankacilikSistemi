@@ -9,7 +9,7 @@ public abstract class Account implements Transferable {
 /**
  * Hesap oluşturan constructor u yazıyoruz.
  * @param accountNumber Hesap numarası.
- * @param ownername Hesap sahibi adı.
+ * @param ownerName Hesap sahibi adı.
  * @param initialBalance Açılış bakiyesi.
  */
 public Account (String accountNumber, String ownerName, double initialBalance){
@@ -70,7 +70,7 @@ public boolean transfer (Account toAccount, double amount) {
 public String getAccountNumber(){
     return accountNumber;
 }
-public String getBalance(){
+public double getBalance(){
     return balance;
 }
 public ArrayList<Transaction> getHistory(){
