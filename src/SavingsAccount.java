@@ -18,7 +18,7 @@ public class SavingsAccount extends Account {
  public void calculateInterest(){ // Faiz hesaplama metodu.
         double interest = this.balance * this.interestRate;
         this.deposit(interest); // Kazancı hesaba yatırdık.
-        System.out.println("Faiz Hesaplandi : " + interest + "TL eklendi.");
+        System.out.println("Faiz Hesaplandı : " + interest + "TL eklendi.");
  }
  public double getInterestRate(){
         return interestRate; //Faiz oranını öğrenmek için getter.
