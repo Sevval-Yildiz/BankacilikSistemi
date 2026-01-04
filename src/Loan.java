@@ -15,5 +15,8 @@ public class Loan {
         double totalPayment = amount * (1 + (interestRate * duration));
         return totalPayment / duration;
     }
+    public double getTotalPayment(){
+        return amount * (1 + (interestRate * duration));
+    }
 
 }
