@@ -18,5 +18,13 @@ public class Loan {
     public double getTotalPayment(){
         return amount * (1 + (interestRate * duration));
     }
-
+    public void printLoanDetails() {
+        System.out.println("KREDİ DETAYLARI : ");
+        System.out.println("Tür :" + loanType);
+        System.out.println("Ana Para : " + amount + "TL");
+        System.out.println("Vade : " + duration + "Ay");
+        System.out.println("Faiz Oranı : " + interestRate);
+        System.out.println("Aylık Taksit : " + calculateMonthlyPayment() + "TL");
+        System.out.println("Toplam Geri Ödeme : " + getTotalPayment() + "TL");
+    }
 }
