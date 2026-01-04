@@ -10,5 +10,10 @@ public class Loan {
         this.interestRate = interestRate;
         this.loanType = loanType;
     }
+    public double calculateMonthlyPayment() {
+        // Formül : (Ana Para * (1 + Faiz * Vade)) / Vade
+        double totalPayment = amount * (1 + (interestRate * duration));
+        return totalPayment / duration;
+    }
 
 }
