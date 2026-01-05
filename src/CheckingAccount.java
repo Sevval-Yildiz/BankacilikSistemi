@@ -14,6 +14,7 @@ public class CheckingAccount extends Account {
         if (this.balance + this.overdraftLimit >= amount) {
             this.balance -= amount;
             addTransaction("Çekme", amount, "Vadesiz hesaptan çekildi.");
+            System.out.println("Hesaptan " + amount + " TL çekildi.");
             return true;
         } else {
             System.out.println("Yetersiz bakiye ve kredi limiti aşımı !");
