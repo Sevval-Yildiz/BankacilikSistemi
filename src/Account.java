@@ -79,4 +79,15 @@ public ArrayList<Transaction> getHistory(){
 public String getOwnerName(){
     return ownerName;
 }
+    public void printHistory() {
+        System.out.println("\n--- HESAP HAREKETLERİ (EXTRE) ---");
+        if (this.history != null && !this.history.isEmpty()) {
+            for (Transaction t : this.history) {
+                System.out.println(t); // Transaction sınıfındaki toString çalışır
+            }
+        } else {
+            System.out.println("Henüz yapılmış bir işlem yok.");
+        }
+        System.out.println("---------------------------------");
+    }
 }
