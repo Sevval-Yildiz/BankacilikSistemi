@@ -23,4 +23,14 @@ public class SavingsAccount extends Account {
  public double getInterestRate(){
         return interestRate; //Faiz oranını öğrenmek için getter.
  }
+
+    @Override
+    public String toString() {
+        return "\nHESAP BİLGİ KARTI\n" +
+                "Hesap Türü : Vadeli Hesap\n" +
+                "Ad Soyad : " + getOwnerName() + "\n" +
+                "Hesap No : " + getAccountNumber() + "\n" +
+                "Bakiye : " + getBalance() + " TL\n" +
+                "Faiz Oranı : %" + getInterestRate() + "\n" ;
+    }
 }

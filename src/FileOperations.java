@@ -9,7 +9,7 @@ import java.io.File;
 public class FileOperations {
     private static final String FILE_NAME = "bank_data.txt";
 
-    public void saveData(ArrayList<Account> accounts) {
+    public static void saveData(ArrayList<Account> accounts) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
 
             for (Account acc : accounts) {

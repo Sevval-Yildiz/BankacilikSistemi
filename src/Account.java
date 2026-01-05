@@ -59,7 +59,7 @@ public boolean transfer (Account toAccount, double amount) {
         toAccount.deposit(amount);
         this.addTransaction("Giden Transfer", amount, toAccount.getOwnerName() + "kişisine transfer");
         toAccount.addTransaction("Gelen Transfer", amount, this.ownerName + "kişisinden transfer");
-        System.out.println("Başarılı : " + toAccount.getOwnerName() + "hesabına" + amount + "TL gönderildi.");
+        System.out.println("Başarılı : " + toAccount.getOwnerName() + "hesabına " + amount + " TL gönderildi.");
         return true;
     }else{
         System.out.println("Para transferi için bakiye yetersiz, işlem başarısız !");

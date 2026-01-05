@@ -71,6 +71,7 @@ public class Main {
                         System.out.print("Yatırılacak Tutar : ");
                         double amount = scanner.nextDouble();
                         depAcc.deposit(amount);
+                        FileOperations.saveData(bank.getAllAccounts());
 
                         if (depAcc instanceof SavingsAccount) {
                             System.out.print("Faiz uygulansın mı ? (1: Evet, 0: Hayır)");
@@ -103,6 +104,7 @@ public class Main {
                         System.out.print("Transfer Tutarı : ");
                         double amount = scanner.nextDouble();
                         fromAcc.transfer(toAcc, amount);
+                        FileOperations.saveData(bank.getAllAccounts());
                     }
                     break;
                 case 6: // Kredi hesaplama.
