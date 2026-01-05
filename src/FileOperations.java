@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
-import java.time.LocalDateTime; // Tarih ve saat için
-import java.time.format.DateTimeFormatter; // Saat formatı için
+import java.time.LocalDateTime; // Tarih ve saat için.
+import java.time.format.DateTimeFormatter; // Saat formatı için.
 
 public class FileOperations {
     private static final String DATA_FILE = "bank_data.txt";
-    private static final String LOG_FILE = "islemler_gecmisi.txt"; // İşlem geçmişi dosyası
+    private static final String LOG_FILE = "islemler_gecmisi.txt"; // İşlem geçmişi dosyası.
 
-    // 1. Hesap verilerini (Bakiye vs) kaydeden metod
+    // 1. Hesap verilerini kaydeden metod.
     public static void saveData(ArrayList<Account> accounts) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE))) {
             for (Account acc : accounts) {
@@ -34,15 +34,15 @@ public class FileOperations {
         }
     }
 
-    // 2. [YENİ EKLENEN] Yapılan işlemleri metin olarak kaydeden metod
+    // 2. Yapılan işlemleri metin olarak kaydeden metod.
     public static void logTransaction(String message) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE, true))) { // 'true' parametresi dosyanın sonuna ekleme yapar
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE, true))) { // 'true' parametresi dosyanın sonuna ekleme yapar.
 
-            // O anki tarih ve saati al
+            // O anki tarih ve saati al.
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
 
-            // Dosyaya yaz: [Tarih] İşlem Mesajı
+            // Dosyaya yaz: [Tarih] İşlem Mesajı.
             writer.write("[" + dtf.format(now) + "] " + message);
             writer.newLine();
 
@@ -51,7 +51,7 @@ public class FileOperations {
         }
     }
 
-    // 3. Verileri okuyan metod
+    // 3. Verileri okuyan metod.
     public ArrayList<Account> loadData(){
         ArrayList<Account> accountList = new ArrayList<> ();
         File file = new File(DATA_FILE);
