@@ -18,4 +18,8 @@ public class Bank {
     System.out.println("Hata ! " + accountNumber + "numaralı hesap bulunamadı ! ");
         return null; // Hesabı bulamazsak boş dönüyoruz.
     }
+
+    public ArrayList<Account> getAllAccounts() {
+        return this.accounts;
+    }
 }
