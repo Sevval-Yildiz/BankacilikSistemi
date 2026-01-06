@@ -26,7 +26,7 @@ public class SavingsAccount extends Account {
 
     @Override
     public String toString() {
-        return "\nHESAP BİLGİ KARTI\n" +
+        return "\n---HESAP BİLGİ KARTI---\n" +
                 "Hesap Türü : Vadeli Hesap\n" +
                 "Ad Soyad : " + getOwnerName() + "\n" +
                 "Hesap No : " + getAccountNumber() + "\n" +

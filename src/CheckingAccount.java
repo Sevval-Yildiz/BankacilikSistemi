@@ -28,7 +28,7 @@ public class CheckingAccount extends Account {
 
     @Override
     public String toString() {
-        return "\nHESAP BİLGİ KARTI\n" +
+        return "\n---HESAP BİLGİ KARTI---\n" +
                 "Hesap Türü : Vadesiz Hesap\n" +
                 "Ad Soyad : " + getOwnerName() + "\n" +
                 "Hesap No : " + getAccountNumber() + "\n" +

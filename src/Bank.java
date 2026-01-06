@@ -6,7 +6,6 @@ public class Bank {
     }
     public void addAccount (Account account){ // Bankaya yeni bir hesap ekleme metodu.
         this.accounts.add(account);
-        FileOperations.saveData(this.accounts);
         System.out.println("Başarılı : " + account.getAccountNumber() + " numaralı hesap bankaya eklendi.");
     }
     public Account getAccount (String accountNumber){ // Hesap numarası ile hesap bulma metodu.

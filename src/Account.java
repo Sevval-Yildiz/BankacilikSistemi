@@ -80,7 +80,7 @@ public String getOwnerName(){
     return ownerName;
 }
     public void printHistory() {
-        System.out.println("\n--- HESAP HAREKETLERİ (EXTRE) ---");
+        System.out.println("\n---HESAP HAREKETLERİ (EXTRE)---\n");
         if (this.history != null && !this.history.isEmpty()) {
             for (Transaction t : this.history) {
                 System.out.println(t); // Transaction sınıfındaki toString çalışır
